@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0b0f1a">
+<title>Wake PC</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main>
+  <h1>Wake PC</h1>
+  <p class="target" id="target">—</p>
+  <button id="wake" aria-label="Send wake packet">
+    <span class="glyph" aria-hidden="true">⏻</span>
+    <span class="label">Wake</span>
+  </button>
+  <p class="status" id="status" role="status" aria-live="polite"></p>
+</main>
+
+<script>
+(async () => {
+  const statusEl = document.getElementById('status');
+  const targetEl = document.getElementById('target');
+  const btn = document.getElementById('wake');
+
+  let token = localStorage.getItem('wol_token') || '';
+  let target = null;
+
+  // Token prompt on first visit if server requires auth
+  async function loadTargets() {
+    try {
+      const res = await fetch('/health', { cache: 'no-store' });
+      const j = await res.json();
+      if (j.targets && j.targets.length) {
+        target = j.targets[0];
+        targetEl.textContent = target;
+      }
+    } catch (e) {
+      targetEl.textContent = 'offline';
+    }
+  }
+
+  btn.addEventListener('click', async () => {
+    btn.disabled = true;
+    btn.classList.add('sending');
+    statusEl.textContent = 'Sending…';
+    statusEl.className = 'status';
+    try {
+      const headers = { 'Content-Type': 'application/json' };
+      if (token) headers['X-WOL-Token'] = token;
+      const res = await fetch('/wake', {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({ target }),
+      });
+      const j = await res.json().catch(() => ({}));
+      if (res.status === 401) {
+        const t = prompt('Server requires a token. Paste it:');
+        if (t) { localStorage.setItem('wol_token', t); token = t; }
+        throw new Error('unauthorized — token saved, tap again');
+      }
+      if (!res.ok) throw new Error(j.error || res.statusText);
+      statusEl.textContent = `✓ packet sent to ${j.mac}`;
+      statusEl.className = 'status ok';
+      setTimeout(() => { statusEl.textContent = 'Wait ~60s then connect RDP.'; statusEl.className = 'status hint'; }, 1500);
+    } catch (e) {
+      statusEl.textContent = '✗ ' + e.message;
+      statusEl.className = 'status err';
+    } finally {
+      btn.disabled = false;
+      btn.classList.remove('sending');
+    }
+  });
+
+  await loadTargets();
+})();
+</script>
+</body>
+</html>

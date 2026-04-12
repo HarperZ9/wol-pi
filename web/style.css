@@ -1,0 +1,96 @@
+:root {
+  --bg: #0b0f1a;
+  --bg-2: #111827;
+  --fg: #e5e7eb;
+  --fg-dim: #9ca3af;
+  --accent: #4A7BE8;
+  --accent-2: #64B5FF;
+  --green: #10b981;
+  --red: #ef4444;
+  --border: #1f2937;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+html, body { height: 100%; background: var(--bg); color: var(--fg); font-family: -apple-system, system-ui, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+body {
+  display: flex; align-items: center; justify-content: center;
+  background:
+    radial-gradient(ellipse at top, rgba(74, 123, 232, 0.12), transparent 60%),
+    radial-gradient(ellipse at bottom, rgba(100, 181, 255, 0.05), transparent 60%),
+    var(--bg);
+}
+main {
+  text-align: center;
+  padding: 2rem;
+  max-width: 320px;
+  width: 100%;
+}
+h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  margin-bottom: 0.5rem;
+}
+.target {
+  font-family: "JetBrains Mono", "SF Mono", Menlo, monospace;
+  font-size: 0.85rem;
+  color: var(--accent-2);
+  margin-bottom: 2rem;
+  letter-spacing: 0.02em;
+}
+button {
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  background: var(--bg-2);
+  color: var(--fg);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 8px 32px rgba(74, 123, 232, 0.25);
+  user-select: none;
+}
+button:active {
+  transform: scale(0.96);
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 4px 16px rgba(74, 123, 232, 0.5);
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+button.sending {
+  animation: pulse 0.8s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 8px 32px rgba(74, 123, 232, 0.25); }
+  50% { box-shadow: 0 8px 48px rgba(74, 123, 232, 0.6); }
+}
+.glyph {
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--accent);
+}
+button:active .glyph { color: white; }
+.label {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+}
+button:active .label { color: white; }
+.status {
+  margin-top: 2rem;
+  min-height: 1.4em;
+  font-size: 0.9rem;
+  color: var(--fg-dim);
+  font-family: "JetBrains Mono", "SF Mono", Menlo, monospace;
+}
+.status.ok { color: var(--green); }
+.status.err { color: var(--red); }
+.status.hint { color: var(--fg-dim); opacity: 0.7; }

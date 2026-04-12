@@ -1,0 +1,7 @@
+{
+  "token": "REPLACE-WITH-A-LONG-RANDOM-STRING-OR-REMOVE-TO-DISABLE",
+  "broadcast": "255.255.255.255",
+  "targets": {
+    "harperz9-pc": "04-7C-16-6F-41-1B"
+  }
+}

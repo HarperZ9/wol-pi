@@ -1,0 +1,29 @@
+[Unit]
+Description=wol-pi — Wake-on-LAN HTTP relay for the tailnet
+After=network-online.target tailscaled.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=wol
+Group=wol
+ExecStart=/usr/bin/python3 /opt/wol-pi/wol_server.py --port 8080
+Restart=always
+RestartSec=5
+
+# Harden
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadOnlyPaths=/etc/wol-pi /opt/wol-pi
+PrivateTmp=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictNamespaces=true
+LockPersonality=true
+MemoryDenyWriteExecute=true
+# Network: needs raw-socket-like broadcast but just SOCK_DGRAM — no CAP_NET_RAW needed
+
+[Install]
+WantedBy=multi-user.target
