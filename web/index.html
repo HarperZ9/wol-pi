@@ -12,7 +12,7 @@
 <body>
 <main>
   <h1>Wake PC</h1>
-  <p class="target" id="target">—</p>
+  <p class="target" id="target">-</p>
   <button id="wake" aria-label="Send wake packet">
     <span class="glyph" aria-hidden="true">⏻</span>
     <span class="label">Wake</span>
@@ -60,7 +60,7 @@
       if (res.status === 401) {
         const t = prompt('Server requires a token. Paste it:');
         if (t) { localStorage.setItem('wol_token', t); token = t; }
-        throw new Error('unauthorized — token saved, tap again');
+        throw new Error('unauthorized - token saved, tap again');
       }
       if (!res.ok) throw new Error(j.error || res.statusText);
       statusEl.textContent = `✓ packet sent to ${j.mac}`;
