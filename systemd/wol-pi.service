@@ -1,5 +1,5 @@
 [Unit]
-Description=wol-pi — Wake-on-LAN HTTP relay for the tailnet
+Description=wol-pi - Wake-on-LAN HTTP relay for the tailnet
 After=network-online.target tailscaled.service
 Wants=network-online.target
 
@@ -23,7 +23,7 @@ ProtectControlGroups=true
 RestrictNamespaces=true
 LockPersonality=true
 MemoryDenyWriteExecute=true
-# Network: needs raw-socket-like broadcast but just SOCK_DGRAM — no CAP_NET_RAW needed
+# Network: needs raw-socket-like broadcast but just SOCK_DGRAM - no CAP_NET_RAW needed
 
 [Install]
 WantedBy=multi-user.target

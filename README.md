@@ -39,7 +39,7 @@ Tail the logs to confirm:
 journalctl -u wol-pi -f
 ```
 
-## Install (PC side — one-time Windows prep)
+## Install (PC side - one-time Windows prep)
 
 ```powershell
 # run as Administrator
@@ -62,8 +62,8 @@ Add the button page to your home screen for one-tap access (iOS: Share → Add t
 
 ## Security
 
-- The Pi is only reachable over your tailnet — your private overlay network. Nothing on the public internet hits it.
-- Optional shared token — set `"token": "…"` in `/etc/wol-pi/config.json`. Phone sends it via `X-WOL-Token` header. Second layer on top of Tailscale.
+- The Pi is only reachable over your tailnet - your private overlay network. Nothing on the public internet hits it.
+- Optional shared token - set `"token": "…"` in `/etc/wol-pi/config.json`. Phone sends it via `X-WOL-Token` header. Second layer on top of Tailscale.
 - The systemd unit runs as a dedicated unprivileged user with `NoNewPrivileges`, `ProtectSystem=strict`, `ProtectHome`, `PrivateTmp`, etc.
 
 ## Troubleshooting
@@ -71,7 +71,7 @@ Add the button page to your home screen for one-tap access (iOS: Share → Add t
 **Packet sent but PC doesn't wake**
 
 1. Verify PC is fully shut down (Start → Power → Shut down). Not sleep.
-2. Ethernet cable is plugged in — link lights on?
+2. Ethernet cable is plugged in - link lights on?
 3. `windows-wol-prep.ps1` ran successfully?
 4. BIOS Wake on LAN enabled?
 5. Fast Startup disabled? `powercfg /a` and check there's no "Fast Startup" mentioned.
