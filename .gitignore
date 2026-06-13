@@ -1,13 +1,20 @@
 # Never commit the live config — it may contain a real secret token
 config.json
 /etc/wol-pi/
+.env
+.env.*
+!.env.example
+.warden-safe-cache/
+Codex.local.md
 
 # Python
 __pycache__/
 *.pyc
+.pytest_cache/
 
 # Editor
 .vscode/
 .idea/
 *.swp
 .DS_Store
+*.log
