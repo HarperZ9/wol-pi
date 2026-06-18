@@ -36,9 +36,22 @@ git clone https://github.com/HarperZ9/wol-pi.git
 cd wol-pi
 sudo ./install.sh
 
-# edit the config with your PC's MAC
+# edit the config: set your PC's MAC under "targets"
 sudo nano /etc/wol-pi/config.json
 sudo systemctl restart wol-pi
+```
+
+The config is a small JSON file. Targets are a `name -> MAC` map, so you
+can wake more than one machine:
+
+```json
+{
+  "token": "REPLACE-WITH-A-LONG-RANDOM-STRING-OR-REMOVE-TO-DISABLE",
+  "broadcast": "255.255.255.255",
+  "targets": {
+    "desktop-pc": "AA-BB-CC-DD-EE-FF"
+  }
+}
 ```
 
 Tail the logs to confirm:
@@ -67,6 +80,14 @@ This disables Fast Startup (mandatory for WoL from full shutdown), enables Wake-
 5. Open Microsoft Remote Desktop → connect to your PC's Tailscale hostname → type Windows password
 
 Add the button page to your home screen for one-tap access (iOS: Share → Add to Home Screen; Android: three-dot menu → Add to Home Screen).
+
+## Usage
+
+The server exposes a tiny HTTP API (`/health`, `/targets`, `POST /wake`) plus
+the single-button web UI. For the full command-line flags, config schema, the
+HTTP endpoints, `curl` examples with real output, and a runnable local demo,
+see [USAGE.md](USAGE.md). A self-contained demo lives in
+[`examples/`](examples/).
 
 ## Security
 
