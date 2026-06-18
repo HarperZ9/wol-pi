@@ -1,5 +1,13 @@
 # wol-pi
 
+> Wake your Windows PC from anywhere — one button in a mobile browser, routed through a Raspberry Pi on your tailnet.
+
+[![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+![python](https://img.shields.io/badge/python-3.11%2B-blue.svg)
+![deps: none](https://img.shields.io/badge/deps-none-success.svg)
+![raspberry pi](https://img.shields.io/badge/raspberry%20pi-zero%202%20W-c51a4a.svg)
+![tailscale](https://img.shields.io/badge/tailscale-tailnet-7f56d9.svg)
+
 Wake your Windows PC from anywhere, via a Raspberry Pi on your LAN that's reachable through your Tailscale tailnet. One big button in a mobile browser.
 
 ```
