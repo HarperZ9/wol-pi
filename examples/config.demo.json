@@ -1,0 +1,6 @@
+{
+  "broadcast": "127.255.255.255",
+  "targets": {
+    "desktop-pc": "AA-BB-CC-DD-EE-FF"
+  }
+}
