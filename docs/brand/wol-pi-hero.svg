@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">wol-pi tailnet wake surface</title>
+  <desc id="desc">A phone reaches a Raspberry Pi relay over a private tailnet and sends a wake signal to a desktop PC.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07141f"/>
+      <stop offset="0.48" stop-color="#0f2436"/>
+      <stop offset="1" stop-color="#18213a"/>
+    </linearGradient>
+    <linearGradient id="wake" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#42d7b8"/>
+      <stop offset="0.55" stop-color="#7aa7ff"/>
+      <stop offset="1" stop-color="#ffc75a"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="420" rx="28" fill="url(#bg)"/>
+  <g opacity="0.32" stroke="#28465f" stroke-width="1">
+    <path d="M0 86h1200M0 156h1200M0 226h1200M0 296h1200M0 366h1200"/>
+    <path d="M120 0v420M260 0v420M400 0v420M540 0v420M680 0v420M820 0v420M960 0v420M1100 0v420"/>
+  </g>
+  <path d="M275 210C398 128 500 128 610 210S832 292 948 210" fill="none" stroke="url(#wake)" stroke-width="16" stroke-linecap="round" opacity="0.96"/>
+  <path d="M275 210C398 128 500 128 610 210S832 292 948 210" fill="none" stroke="url(#wake)" stroke-width="36" stroke-linecap="round" opacity="0.22" filter="url(#glow)"/>
+  <rect x="124" y="96" width="150" height="228" rx="26" fill="#0b1726" stroke="#375876" stroke-width="3"/>
+  <rect x="145" y="128" width="108" height="160" rx="12" fill="#13263b"/>
+  <circle cx="199" cy="306" r="8" fill="#42d7b8"/>
+  <rect x="528" y="133" width="146" height="154" rx="18" fill="#10213a" stroke="#3a5f81" stroke-width="3"/>
+  <rect x="562" y="168" width="78" height="48" rx="8" fill="#1e3957"/>
+  <circle cx="601" cy="242" r="16" fill="#42d7b8"/>
+  <path d="M587 238h28M601 224v28" stroke="#07141f" stroke-width="7" stroke-linecap="round"/>
+  <rect x="918" y="104" width="190" height="142" rx="14" fill="#101b2e" stroke="#415d83" stroke-width="3"/>
+  <rect x="956" y="250" width="114" height="18" rx="9" fill="#415d83"/>
+  <rect x="980" y="273" width="66" height="14" rx="7" fill="#293d5a"/>
+  <rect x="944" y="130" width="138" height="88" rx="8" fill="#172a42"/>
+  <circle cx="1036" cy="174" r="28" fill="#ffc75a" opacity="0.92"/>
+  <path d="M1036 146v56M1008 174h56" stroke="#101b2e" stroke-width="8" stroke-linecap="round"/>
+  <text x="92" y="370" fill="#f5f8ff" font-family="Inter, Arial, sans-serif" font-size="46" font-weight="700">wol-pi</text>
+  <text x="248" y="370" fill="#cbd7e6" font-family="Inter, Arial, sans-serif" font-size="24">private tailnet wake relay for Raspberry Pi</text>
+</svg>

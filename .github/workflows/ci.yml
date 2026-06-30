@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Validate config examples
+        run: |
+          python -m json.tool config.example.json >/dev/null
+          python -m json.tool examples/config.demo.json >/dev/null
+      - name: Compile Python relay
+        run: python -m py_compile wol_server.py
