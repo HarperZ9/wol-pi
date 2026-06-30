@@ -1,5 +1,5 @@
 {
-  "token": "REPLACE-WITH-A-LONG-RANDOM-STRING-OR-REMOVE-TO-DISABLE",
+  "token": "",
   "broadcast": "255.255.255.255",
   "targets": {
     "desktop-pc": "AA-BB-CC-DD-EE-FF"

@@ -1,4 +1,4 @@
-# Never commit the live config — it may contain a real secret token
+# Never commit live config. It may contain a real shared token.
 config.json
 /etc/wol-pi/
 .env
