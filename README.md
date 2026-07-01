@@ -1,6 +1,6 @@
 # wol-pi
 
-![wol-pi tailnet wake surface](docs/brand/wol-pi-hero.svg)
+![wol-pi tailnet wake surface](docs/brand/wol-pi-hero.png)
 
 > A small Raspberry Pi Wake-on-LAN relay: one mobile browser button, one tailnet hop, one magic packet to wake a Windows PC on your LAN.
 
