@@ -1,3 +1,5 @@
+<p align="center"><img src=".github/assets/zentropy-banner.png" alt="wol-pi" width="100%"></p>
+
 # wol-pi
 
 ![wol-pi tailnet wake surface](docs/brand/wol-pi-hero.png)
@@ -135,3 +137,7 @@ The Pi must be on the same L2 broadcast domain as the target PC unless you modif
 ## License
 
 MIT. Copyright 2026 Zain Dana Harper.
+
+---
+
+**[Zentropy Labs](https://github.com/ZentropyLabs-ai)** · order out of entropy. An independent lab building evidence-first tools that leave a re-checkable artifact behind. Built by Zain Dana Harper in Seattle. The full workbench is at [Project Telos](https://harperz9.github.io).
