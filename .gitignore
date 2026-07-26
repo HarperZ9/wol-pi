@@ -21,3 +21,6 @@ __pycache__/
 
 # Local-only Claude instructions (global standard: never commit)
 CLAUDE.local.md
+
+# Build output (global standard: never commit)
+dist/
