@@ -1,16 +1,19 @@
-<p align="center"><img src=".github/assets/banner.png" alt="wol-pi" width="100%"></p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/HarperZ9/wol-pi/main/docs/art/hero-dark.svg">
+  <img src="https://raw.githubusercontent.com/HarperZ9/wol-pi/main/docs/art/hero-light.svg" alt="wol-pi: Wake a Windows PC from your phone through a Pi on your tailnet. Bundles of fine lines carry the work through 5 stations, phone, tailnet, relay, magic packet and wake, along a sweeping path into a bright core." width="100%">
+</picture>
 
 # wol-pi
 
-![wol-pi tailnet wake surface](docs/brand/wol-pi-hero.png)
+Wake a Windows PC from your phone through a Pi on your tailnet.
 
-> A small Raspberry Pi Wake-on-LAN relay: one mobile browser button, one tailnet hop, one magic packet to wake a Windows PC on your LAN.
+```
+curl -fsSL https://tailscale.com/install.sh | sudo bash
+```
 
-[![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-![python](https://img.shields.io/badge/python-3.11%2B-blue.svg)
-![deps: none](https://img.shields.io/badge/deps-none-success.svg)
 [![CI](https://github.com/HarperZ9/wol-pi/actions/workflows/ci.yml/badge.svg)](https://github.com/HarperZ9/wol-pi/actions/workflows/ci.yml)
-[![part of: Project Telos](https://img.shields.io/badge/part_of-Project_Telos-00b3a4.svg)](https://harperz9.github.io)
+[![license](https://img.shields.io/badge/license-MIT-e6e1d6?style=flat-square&labelColor=1a1712)](https://github.com/HarperZ9/wol-pi/blob/main/LICENSE)
+![python 3.11+](https://img.shields.io/badge/python-3.11%2B-e6e1d6?style=flat-square&labelColor=1a1712)
 
 `wol-pi` wakes a Windows PC from a phone without exposing the relay to the public internet. The usual deployment is a Raspberry Pi on the same LAN as the PC, reachable through Tailscale, serving a single mobile-first web button.
 
